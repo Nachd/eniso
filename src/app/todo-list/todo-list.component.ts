@@ -29,6 +29,6 @@ export class TodoListComponent implements OnInit {
   }
   remove(i) {
    // this.list = this.list.filter((s) => s.id != id)
-   this.list[i].isRemoved = true;
+    this.list[i].isRemoved = true;
   }
 }

@@ -1,0 +1,37 @@
+<h1>Inscription</h1>
+<form [formGroup]="form">
+    
+    <div class="form-group">
+        <input class="form-control" formControlName="nom"  [(ngModel)]="x.nom"  placeholder="Nom" required>
+        <div *ngIf="nom.invalid && (nom.dirty || nom.touched)"
+        class="alert alert-danger">
+    
+      <div *ngIf="nom.errors.required">
+        password is required.
+      </div>
+      <div *ngIf="nom.errors.minlength">
+        password must be at least 6 characters long.
+      </div>
+     
+    </div>
+    </div>
+    <div class="form-group">
+        <input class="form-control" formControlName="prenom" [(ngModel)]="x.prenom"   placeholder="Prénom" required>
+    </div>
+    <div class="form-group">
+        <input class="form-control" formControlName="email" email=true [(ngModel)]="email"  placeholder="Email" required>
+    </div>
+    <div class="form-group">
+        <input class="form-control" formControlName="password"  type="password" [(ngModel)]="password" minlength="6"  placeholder="Password"  required>
+       
+    </div>
+  
+    <div class="form-group">
+        <input class="form-control" type="date" formControlName="date_naissance"  [(ngModel)]="date_naissance"   placeholder="Date de naissance" >
+    </div>
+
+</form>
+<div class="form-group">
+    <button type="submit" class="form-control btn btn-success" placeholder="Password" (click)="aa()">Save </button>
+</div>
+{{form | json}}
