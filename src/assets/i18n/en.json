@@ -1,7 +1,8 @@
 {
-    "title" : "My First Angular Application",
-    "todo" : "To Do List",
+    "todo_title" : "To do list",
     "save" :"Save",
-    "remove" :"Remove",
-    "done" :"Done"
+
+    "todo" : {
+        "title" : "Todo list"
+    }
 }

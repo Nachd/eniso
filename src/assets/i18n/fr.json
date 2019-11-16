@@ -1,7 +1,7 @@
 {
-    "title" : "Ma premiére application Angular ",
-    "todo" : "Liste à faire",
+    "todo_title" : "Liste à faire",
     "save" :"Enregistrer",
-    "remove" :"Retirer",
-    "done" :"Terminé"
+    "todo" : {
+        "title" : " liste Todo"
+    }
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-todo',
@@ -7,19 +8,35 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TodoComponent implements OnInit {
 
-  constructor() { }
+  constructor(public translate : TranslateService) { }
 
  
   ngOnInit() {
   }
 
-  list : string[] = [];
+  list : any[] = [];
   title = 'eniso';
   nom;
   save(){
     //alert('saved !')
-    this.list.push(this.nom);
+    let obj = {
+      id : this.list.length +1,
+      designation : this.nom,
+      isDone : false,
+      isRemoved : false
+    }
+    this.list.push(obj);
     this.nom ='';
   }
 
+  remove(i){
+    //this.list = this.list.filter((x) => x != i )
+    this.list[i].isRemoved = true;
+  }
+
+  done(i){
+    this.list[i].isDone = true
+  }
+
+ 
 }

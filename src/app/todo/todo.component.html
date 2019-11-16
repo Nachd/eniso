@@ -1,50 +1,26 @@
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * The content below * * * * * * * * * * * -->
-<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
-<!-- * * * * * * * * * * and can be replaced. * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * Delete the template below * * * * * * * * * * -->
-<!-- * * * * * * * to get started with your project! * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 
-<style>
- 
-    </style>
-    
-    <!-- Toolbar -->
-    <div class="toolbar" role="banner">
-      <img
-        width="40"
-        alt="Angular Logo"
-        src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg=="
-      />
-      <span>welcome</span>
-        <div class="spacer"></div>
-     
-        
-       
-     
-    </div>
     
     <div class="content" role="main">
-      <h1>To do list</h1>
+      <h1> {{ 'todo.title' | translate }} </h1>
       <div class="row col-md-8">
         <div class="col-md-9">
             <input [(ngModel)]="nom" class="form-control" (keyup.enter)="save()">
         </div>
         <div class="col-md-3">
-            <button (click)="save()" class="btn btn-primary" >Save</button>
+            <button (click)="save()" class="btn btn-primary" >{{'save' | translate}}</button>
         </div>
       </div>
       <div class="row col-md-8 bloc">
           
         <ul>
-          <li *ngFor="let item of list ; let i=index">
+          <li *ngFor="let item of list ; let i=index" [style.background]="item.isDone ? '#6ef049' : '#c4d1ef' "
+          [style.text-decoration]="item.isRemoved? 'line-through' : 'none'"
+          >
               {{i+1}} - 
-            {{item}} 
+            {{item.designation}} 
 
-            <button class="btn btn-success">Done</button>
-            <button class="btn btn-danger">Remove</button>
+            <button class="btn btn-success" (click)="done(i)">Done</button>
+            <button [disabled]="item.isDone" class="btn btn-danger" (click)="remove(i)">Remove</button>
             
           </li>
         </ul>
