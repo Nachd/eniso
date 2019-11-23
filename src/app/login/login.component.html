@@ -1,9 +1,15 @@
 <div class="content" role="main">
-    <h1>Sign In</h1>
-    <form>
-        <input type="email" class="form-control" placeholder="Email">
+    <h1>Sign In</h1> {{loginForm.valid}}
+    <form [formGroup]="loginForm" style="width: 600px;">
+        <input type="email" email="true" class="form-control" placeholder="Email" 
+        formControlName="control_email" [(ngModel)]="email" required>
+
         <label>Password</label>
-        <input type="password" class="form-control">
-        <button type="submit" class="form-control btn btn-success">Log in </button>
+        <input type="password" class="form-control" [(ngModel)]="password"
+        formControlName="control_password" required minlength="6">
+
+        <button type="submit" class="form-control btn btn-success"
+        [disabled]="!loginForm.valid" (click)="save()"
+        >Log in </button>
     </form>
 </div>
