@@ -1,0 +1,42 @@
+<h2>List of products</h2>
+<div class="row">
+    <div class="col-md-3">
+        <input  class="form-control" (keyup)="search($event.target.value)">
+    </div>
+    <div class="col-md-3">
+        <select class="form-control" (change)="sort($event.target.value)">
+            <option value="asc" > Ascendent Price</option>
+            <option value="desc" >Descendent Price</option>
+        </select>
+    </div>
+    <div class="col-md-3">
+        <select class="form-control" (change)="categoryChange($event.target.value)">
+            <option value="all"> All categories</option>
+            <option> accs </option>
+            <option> laptop </option>
+            <option value="desktop" > Desktop </option>
+        </select>
+    </div>
+    <div class="col-md-3">
+        <button class="form-control btn btn-success"> Add Product </button>
+    </div>
+    
+</div>
+<table class="table">
+    <tr>
+        <th> Ref </th>
+        <th> Title </th>
+        <th> Category </th>
+        <th> Price </th>
+        <th> Description </th>
+        <th> Status </th>
+    </tr>
+    <tr *ngFor="let p of list_copy">
+        <td> {{ p.ref }} </td>
+        <td> {{p.title}} </td>
+        <td> {{p.category}} </td>
+        <td> {{ p.price}} </td>
+        <td> {{p.description}} </td>
+        <td> {{p.isInStock ? 'Disponible' : 'Not disponible'}} </td>
+    </tr>
+</table>

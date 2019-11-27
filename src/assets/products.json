@@ -1,0 +1,29 @@
+[
+    {
+        "ref" : "r01",
+        "title" : "keyboard",
+        "category" :"accs",
+        "price" : 15600,
+        "description" : "desc desc desc .... ",
+        "picture" : "",
+        "isInStock" : true
+    },
+    {
+        "ref" : "r02",
+        "title" : "Lenovo i23",
+        "category" :"laptop",
+        "price" : 1600.000,
+        "description" : "desc desc desc .... ",
+        "picture" : "",
+        "isInStock" : true
+    },
+    {
+        "ref" : "r03",
+        "title" : "Hp 02",
+        "category" :"desktop",
+        "price" : 2300.000,
+        "description" : "desc desc desc .... ",
+        "picture" : "",
+        "isInStock" : true
+    }
+]

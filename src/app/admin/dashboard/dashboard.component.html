@@ -1,0 +1,13 @@
+<div class="container">
+    <div class="row col-md-12">
+        <div class="col-md-3 side-bar">
+            <ul>
+                <li>Dashboard</li>
+                <li [routerLink]="['/admin']">Products</li>
+            </ul>
+        </div>
+        <div class="col-md-9">
+           <router-outlet></router-outlet>
+        </div>
+    </div>
+</div>
