@@ -18,7 +18,7 @@
         </select>
     </div>
     <div class="col-md-3">
-        <button class="form-control btn btn-success"> Add Product </button>
+        <button class="form-control btn btn-success" [routerLink]="['/admin/addproduct']"> Add Product </button>
     </div>
     
 </div>
@@ -33,7 +33,7 @@
     </tr>
     <tr *ngFor="let p of list_copy">
         <td> {{ p.ref }} </td>
-        <td> {{p.title}} </td>
+        <td> <a [routerLink]="['/admin/editproduct/'+p.ref]"> {{p.title}}</a> </td>
         <td> {{p.category}} </td>
         <td> {{ p.price}} </td>
         <td> {{p.description}} </td>

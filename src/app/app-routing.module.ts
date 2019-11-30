@@ -5,6 +5,7 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { DashboardComponent } from './admin/dashboard/dashboard.component';
 import { ProductsComponent } from './admin/products/products.component';
+import { AddProductComponent } from './admin/add-product/add-product.component';
 
 const routes: Routes = [
   {
@@ -26,6 +27,14 @@ const routes: Routes = [
       {
         path :'',
         component : ProductsComponent
+      },
+      {
+        path :'addproduct',
+        component : AddProductComponent
+      },
+      {
+        path :'editproduct/:id',
+        component : AddProductComponent
       }
     ]
   }
