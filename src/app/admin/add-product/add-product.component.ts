@@ -2,7 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Product } from 'src/app/product';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import Swal from 'sweetalert2';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { ProductService } from 'src/app/product.service';
+import { Category } from 'src/app/category';
 
 @Component({
   selector: 'app-add-product',
@@ -11,16 +13,29 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class AddProductComponent implements OnInit {
 
-  constructor(private active_route : ActivatedRoute) { }
+  constructor(private active_route : ActivatedRoute,
+    private productApi : ProductService,
+    private router : Router) { }
   new_product : Product = new Product();
   form : FormGroup;
   id;
   isNew = true;
+  categories : Category[];
   ngOnInit() {
+    //get all categories from database 
+    this.productApi.getAllCategories()
+    .subscribe((data : Category[])=>{
+      this.categories = data;
+    })
+
     this.id = this.active_route.snapshot.params['id'];
     if(this.id){
       this.isNew = false;
       // get product by id from database 
+      this.productApi.getById(this.id)
+      .subscribe((data : Product)=>{
+        this.new_product = data;
+      })
     }
     this.form = new FormGroup({
       'ref' : new FormControl([Validators.required]),
@@ -34,8 +49,21 @@ export class AddProductComponent implements OnInit {
   }
 
   save(){
-    console.log(this.new_product);
-    Swal.fire('saved' , '' , 'success')
+    if(this.isNew){
+      this.productApi.save(this.new_product)
+      .subscribe(data=>{
+        Swal.fire('saved' , '' , 'success');
+        this.router.navigate(['/admin'])
+      })
+    }else{
+      this.productApi.edit(this.new_product)
+      .subscribe(data=>{
+        Swal.fire('saved' , '' , 'success');
+        this.router.navigate(['/admin'])
+      })
+    }
+    
+    
   }
 
   upload_picture(event){

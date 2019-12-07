@@ -4,11 +4,10 @@
 <input placeholder="Title" class="form-control" formControlName="title" [(ngModel)]="new_product.title" required>
 <input placeholder="Price" type="number" class="form-control" formControlName="price" [(ngModel)]="new_product.price" required>
 <input placeholder="Description" class="form-control" formControlName="description" [(ngModel)]="new_product.description">
-<select  class="form-control" formControlName="category" [(ngModel)]="new_product.category">
+<select  class="form-control" formControlName="category" [(ngModel)]="new_product.category_id">
     
-    <option>laptop</option>
-    <option>desktop</option>
-    <option>accs</option>
+    <option *ngFor="let c of categories" value="{{c._id}}">
+        {{c.name}}</option>
 </select>
 <input  type="file" (change)="upload_picture($event)" class="form-control" formControlName="picture" name="picture">
 <input type="checkbox" class="form-control" formControlName="isInStock" [(ngModel)]="new_product.isInStock">

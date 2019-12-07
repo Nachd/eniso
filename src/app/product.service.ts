@@ -9,10 +9,10 @@ export class ProductService {
 
   constructor(private http : HttpClient) { }
 
-  url = 'http://localhost:4200/assets';
+  url = 'http://localhost:5000';
 
   getAll(){
-    return this.http.get(this.url+'/products.json');
+    return this.http.get(this.url+'/products');
   }
   getById(id){
     return this.http.get(this.url+'/product/'+id);
@@ -27,5 +27,8 @@ export class ProductService {
   delete(id){
     return this.http.delete(this.url+'/product/'+id);
 
+  }
+  getAllCategories(){
+    return this.http.get(this.url+'/categories');
   }
 }

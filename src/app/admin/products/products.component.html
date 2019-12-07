@@ -29,14 +29,18 @@
         <th> Category </th>
         <th> Price </th>
         <th> Description </th>
+        <th> Picture </th>
         <th> Status </th>
+        <th> Actions </th>
     </tr>
     <tr *ngFor="let p of list_copy">
         <td> {{ p.ref }} </td>
-        <td> <a [routerLink]="['/admin/editproduct/'+p.ref]"> {{p.title}}</a> </td>
-        <td> {{p.category}} </td>
+        <td> <a [routerLink]="['/admin/editproduct/'+p._id]"> {{p.title}}</a> </td>
+        <td> {{p.category_id}} </td>
         <td> {{ p.price}} </td>
         <td> {{p.description}} </td>
+        <td> <img src="{{p.picture}}" style="width: 50px;" ></td>
         <td> {{p.isInStock ? 'Disponible' : 'Not disponible'}} </td>
+        <td> <button class="btn btn-danger" (click)="delete(p._id)">Delete</button></td>
     </tr>
 </table>
