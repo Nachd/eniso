@@ -2,8 +2,10 @@
     <div class="row col-md-12">
         <div class="col-md-3 side-bar">
             <ul>
+                <li>{{user.firstname}}</li>
                 <li>Dashboard</li>
                 <li [routerLink]="['/admin']">Products</li>
+                <li (click)="logout()">Logout</li>
             </ul>
         </div>
         <div class="col-md-9">

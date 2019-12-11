@@ -2,6 +2,8 @@ import { Component, OnInit, ɵSWITCH_TEMPLATE_REF_FACTORY__POST_R3__ } from '@an
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
+import { UserService } from '../user.service';
+import { User } from '../user';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -9,7 +11,7 @@ import Swal from 'sweetalert2';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private router : Router) { }
+  constructor(private router : Router , private userApi : UserService) { }
   loginForm : FormGroup
   email ; password;
   ngOnInit() {
@@ -20,11 +22,20 @@ export class LoginComponent implements OnInit {
   }
   save(){
     //test
-    if( this.email == 'a@a.a' && this.password == '123456'){
-      this.router.navigate(['/todo']);
-    }else{
-      Swal.fire('Invalid email or password' ,'' , 'error')
-    }
+
+    this.userApi.authentication(this.email , this.password)
+    .subscribe(
+      (data : User)=>{
+        console.log(data);
+        localStorage.setItem('user' , JSON.stringify(data))
+        this.router.navigate(['/admin']);
+      },
+      (err)=>{
+        Swal.fire('Error' , err.error.message , 'error')
+      }
+    )
+    
+ 
    
   }
 

@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import Swal from 'sweetalert2';
 import { User } from '../user';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-register',
@@ -11,7 +12,8 @@ import { User } from '../user';
 })
 export class RegisterComponent implements OnInit {
 
-  constructor(private router : Router) { }
+  constructor(private router : Router ,
+     private userApi : UserService) { }
   registerForm : FormGroup
   user : User = new User();
   ngOnInit() {
@@ -26,7 +28,15 @@ export class RegisterComponent implements OnInit {
   save(){
  
     console.log(this.user)
-    //  this.router.navigate(['/']);
+    this.userApi.inscription(this.user)
+    .subscribe(
+      (data : User)=>{ // success case : status 200
+        Swal.fire("Saved" , "Please verify you email" , "success");
+      },
+      (failure)=>{ //error case : status 403
+        console.log(failure);
+        Swal.fire("Error" , failure.error.message , "error");
+      })
   
    
   }
