@@ -4,4 +4,10 @@ export class User {
     firstname : string;
     lastname : string;
     birthdate : Date;
+    isVerified : boolean;
+
+    constructor(){
+       
+        this.isVerified = false;
+    }
 }

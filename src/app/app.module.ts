@@ -13,6 +13,11 @@ import { RegisterComponent } from './register/register.component';
 import { DashboardComponent } from './admin/dashboard/dashboard.component';
 import { ProductsComponent } from './admin/products/products.component';
 import { AddProductComponent } from './admin/add-product/add-product.component';
+import { VerifyComponent } from './admin/verify/verify.component';
+import { AngularFireModule } from 'angularfire2';
+import { AngularFirestoreModule } from 'angularfire2/firestore';
+import { AngularFireAuthModule } from 'angularfire2/auth';
+import { environment } from '../environments/environment';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -25,12 +30,18 @@ export function createTranslateLoader(http: HttpClient) {
     RegisterComponent,
     DashboardComponent,
     ProductsComponent,
-    AddProductComponent
+    AddProductComponent,
+    VerifyComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFirestoreModule,
+    AngularFireAuthModule, 
+    
     ReactiveFormsModule,
     HttpClientModule,
         TranslateModule.forRoot({

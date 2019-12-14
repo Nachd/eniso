@@ -6,6 +6,7 @@ import { RegisterComponent } from './register/register.component';
 import { DashboardComponent } from './admin/dashboard/dashboard.component';
 import { ProductsComponent } from './admin/products/products.component';
 import { AddProductComponent } from './admin/add-product/add-product.component';
+import { VerifyComponent } from './admin/verify/verify.component';
 
 const routes: Routes = [
   {
@@ -37,6 +38,9 @@ const routes: Routes = [
         component : AddProductComponent
       }
     ]
+  },{
+    path: 'verify/:email',
+    component : VerifyComponent
   }
 ];
 

@@ -26,7 +26,14 @@ export class RegisterComponent implements OnInit {
     })
   }
   save(){
- 
+
+    this.userApi.EmailPassRegister(this.user)
+    .then((data)=>{
+      console.log(data)
+    },err=>{
+      console.log(err)
+    })
+
     console.log(this.user)
     this.userApi.inscription(this.user)
     .subscribe(
@@ -39,5 +46,13 @@ export class RegisterComponent implements OnInit {
       })
   
    
+  }
+  google(){
+    this.userApi.GoogleLogin()
+    .then((data)=>{
+      console.log(data)
+    },err=>{
+      console.log(err)
+    })
   }
 }
