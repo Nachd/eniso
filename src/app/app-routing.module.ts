@@ -7,6 +7,7 @@ import { DashboardComponent } from './admin/dashboard/dashboard.component';
 import { ProductsComponent } from './admin/products/products.component';
 import { AddProductComponent } from './admin/add-product/add-product.component';
 import { VerifyComponent } from './admin/verify/verify.component';
+import { ChatComponent } from './admin/chat/chat.component';
 
 const routes: Routes = [
   {
@@ -41,6 +42,10 @@ const routes: Routes = [
   },{
     path: 'verify/:email',
     component : VerifyComponent
+  },
+  {
+    path : 'chat',
+    component : ChatComponent
   }
 ];
 

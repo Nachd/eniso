@@ -63,4 +63,8 @@ export class UserService {
     })
 
   }
+
+  getAll(){
+    return this.http.get(this.url+'/users');
+  }
 }

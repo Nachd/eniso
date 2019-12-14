@@ -18,6 +18,7 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { environment } from '../environments/environment';
+import { ChatComponent } from './admin/chat/chat.component';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -31,7 +32,8 @@ export function createTranslateLoader(http: HttpClient) {
     DashboardComponent,
     ProductsComponent,
     AddProductComponent,
-    VerifyComponent
+    VerifyComponent,
+    ChatComponent
   ],
   imports: [
     BrowserModule,
