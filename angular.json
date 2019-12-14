@@ -24,12 +24,24 @@
               "src/assets"
             ],
             "styles": [
-              "node_modules/bootstrap/dist/css/bootstrap.min.css",
-              "src/styles.css"
+             
+              "src/assets/plugins/slick/slick.css",
+              "src/assets/plugins/slick/slick-theme.css",
+              "src/assets/css/bootstrap.min.css",
+              "src/assets/css/icons.css",
+              "src/assets/css/flag-icon.min.css",
+              "src/assets/css/style.css"
             ],
             "scripts": [
-              
-              "node_modules/bootstrap/dist/js/bootstrap.min.js"
+              "src/assets/js/jquery.min.js",
+              "src/assets/js/popper.min.js",
+              "src/assets/js/bootstrap.min.js",
+              "src/assets/js/modernizr.min.js",
+              "src/assets/js/detect.js",
+              "src/assets/js/jquery.slimscroll.js",
+              "src/assets/js/vertical-menu.js",
+              "src/assets/plugins/slick/slick.min.js",
+              "src/assets/js/core.js"
             ]
           },
           "configurations": {
